@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TribolaTech Challenge : Raviraj Darvesh</title>
+    <style>
+        .Dark {
+            --main-color: #90e0ef;
+            --secondary-color: #dedbd2;
+        }
+
+        .Light {
+            --main-color: #0077b6;
+            --secondary-color: #468faf;
+        }
+
+        .Contrast {
+            --main-color: #e63946;
+            --secondary-color: #457b9d;
+        }
+
+        .form {
+            background-color: var(--secondary-color);
+            color: var(--main-color);
+            padding: 2rem;
+            min-width: 40vw;
+            display: grid;
+            place-items: center;
+        }
+
+        .theme-button {
+            background-color: var(--main-color);
+            color: var(--secondary-color);
+            padding: .5rem 1rem;
+            border: none;
+            border-radius: 0.3rem;
+            margin: .5rem;
+        }
+
+        .theme-button:hover {
+            cursor: pointer;
+            background-color: var(--secondary-color);
+            color: var(--main-color);
+        }
+
+        .margin {
+            margin: 1rem;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="form Light">
+        <h1>TribolaTech Challenge</h1>
+
+        <div class="form-elements">
+            <div class="name margin">
+                <label for="name">Name :</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div class="vehicles margin">
+                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                <label for="vehicle1"> I have a bike</label><br>
+                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                <label for="vehicle2"> I have a car</label><br>
+            </div>
+            <div class="language margin">
+                <label for="language">I love :</label><br>
+                <input type="radio" id="html" name="fav_language" value="HTML">
+                <label for="html">HTML</label><br>
+                <input type="radio" id="css" name="fav_language" value="CSS">
+                <label for="css">CSS</label><br>
+            </div>
+
+        </div>
+
+        <div class="theme-actions margin">
+            <button class="theme-button Dark">Dark</button>
+            <button class="theme-button Light">Light</button>
+            <button class="theme-button Contrast">Contrast</button>
+        </div>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const themeButtons = document.querySelectorAll(".theme-button");
+            const form = document.querySelector(".form");
+
+            themeButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    form.classList.remove("Dark", "Light", "Contrast");
+                    form.classList.add(button.textContent);
+                })
+            })
+        })
+
+    </script>
+</body>
+
+</html>
